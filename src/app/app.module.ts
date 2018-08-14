@@ -1,52 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccountsNavComponent } from './accounts-nav/accounts-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
-  MatGridListModule,
-  MatCardModule,
-  MatMenuModule,
-  MatTableModule,
-  MatPaginatorModule,
-  MatSortModule
-} from '@angular/material';
-import { AccountsDashboardComponent } from './accounts-dashboard/accounts-dashboard.component';
-import { AccountsTableComponent } from './accounts-table/accounts-table.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home/home.component";
+import { LoginComponent } from "./login/login.component";
+import { CoreModule } from "./core/core.module";
+import { SharedModule } from "./shared/shared.module";
+import { FeatureModule } from "./feature/feature.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AccountsNavComponent,
-    AccountsDashboardComponent,
-    AccountsTableComponent
-  ],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
