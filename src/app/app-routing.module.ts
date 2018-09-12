@@ -6,15 +6,23 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
-    loadChildren: './feature/feature-routing.module#FeatureRoutingModule'
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'LOGIN'
+    }
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: '',
+    component: HomeComponent,
+    loadChildren: './feature/feature.module#FeatureModule'
   },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: '**', component: PageNotFoundComponent,
+    data: {
+      title: 'NOT FOUND'
+    }
+  }
 ];
 
 @NgModule({

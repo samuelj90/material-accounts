@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppTitleService } from './app-title.service';
 
 @NgModule({
   imports: [
@@ -7,4 +8,16 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: []
 })
-export class CoreModule { }
+export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [{ provide: AppTitleService }]
+    };
+  }
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+    if (parentModule) {
+      throw new Error('CoreModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}

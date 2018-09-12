@@ -1,0 +1,43 @@
+<mat-table [dataSource]="accountsDataSource" multiTemplateDataRows class="mat-elevation-z8" matSort>
+  <ng-container matColumnDef="detail-view-actions">
+    <mat-header-cell *matHeaderCellDef [style.flex]="'0 0 50px'"></mat-header-cell>
+    <mat-cell *matCellDef="let element" [style.flex]="'0 0 50px'">
+      <mat-icon (click)="setExpandedElement(element)" *ngIf="element!=expandedElement">keyboard_arrow_down</mat-icon>
+      <mat-icon (click)="setExpandedElement(element)" *ngIf="element===expandedElement">keyboard_arrow_up</mat-icon>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accountType">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Account Type </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.accountType}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="balance">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Balance </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.balance}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="previousCarriedDown">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Last FY CD </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.previousCarriedDown}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="parentAccount">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Parent A/c </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.parentAccount ? element.parentAccount.title : 'Primary' }}
+    </mat-cell>
+  </ng-container>
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="accountDetail">
+    <mat-cell
+      [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'"
+      *matCellDef="let element"
+      [attr.colspan]="columnsToDisplay.length">
+
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let element; columns: columnsToDisplay;" class="account-row" [class.account-row-expanded]="expandedElement === element">
+  </mat-row>
+  <mat-row *matRowDef="let element; columns: ['accountDetail']" class="account-row-detail"></mat-row>
+</mat-table>

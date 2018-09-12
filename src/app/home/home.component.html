@@ -1,4 +1,7 @@
-<mat-drawer-container class="example-container">
-  <pms-navigation></pms-navigation>
-  <router-outlet></router-outlet>
+<mat-drawer-container class="pms-mat-drawer-container">
+  <pms-navigation>
+    <div id="main-content-wrapper" content>
+      <router-outlet></router-outlet>
+    </div>
+  </pms-navigation>
 </mat-drawer-container>

@@ -1,22 +1,21 @@
-.sidenav-container {
-  height: 100%;
+mat-sidenav-container {
+    mat-sidenav {
+        width: 250px;
+        mat-nav-list {
+            mat-icon {
+                margin-right: 10px;
+            }
+        }
+    }
+    mat-sidenav-content {
+        min-height: calc(100vh);
+        padding-top: 65px;
+    }
 }
 
-.sidenav {
-  min-width: 250px;
-  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
-}
-
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  z-index: 99;
-}
-
-mat-nav-list {
-  margin-top: 64px;
-}
-
-mat-icon {
-  margin-right: 5px;
+.app-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    min-height: 64px;
 }

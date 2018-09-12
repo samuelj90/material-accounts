@@ -1,0 +1,31 @@
+<div (window:resize)="onResize($event)">
+  <mat-grid-list [cols]="accountGridListCols" rowHeight="fit" gutterSize="15">
+    <mat-grid-tile [colspan]="accountListGridTileColspan" rowspan="2">
+      <mat-grid-tile-header>
+        <h3>Accounts</h3>
+      </mat-grid-tile-header>
+      <pms-account-list></pms-account-list>
+      <a id="addIcon" routerLink="/accounts/create" mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <mat-grid-tile-header>
+        <h3>Account Types</h3>
+      </mat-grid-tile-header>
+      <pms-account-types-list></pms-account-types-list>
+      <a id="addIcon" routerLink="/accounts/account-type/create" mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <mat-grid-tile-header>
+        <h3>Accounting Periods</h3>
+      </mat-grid-tile-header>
+      <pms-accounting-period-list></pms-accounting-period-list>
+      <a id="addIcon" routerLink="/accounts/accounting-periods/create" mat-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

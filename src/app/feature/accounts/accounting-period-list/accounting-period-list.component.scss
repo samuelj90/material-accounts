@@ -1,0 +1,21 @@
+mat-table {
+  overflow: auto;
+  height: 100%;
+
+  mat-row.accounting-period-row:not(.accounting-period-row-expanded):hover {
+    background: #f5f5f5;
+  }
+
+  mat-row.accounting-period-row:not(.accounting-period-row-expanded):active {
+    background: #efefef;
+  }
+
+  mat-row.accounting-period-row-detail {
+    min-height: 0px;
+    border: none;
+
+    mat-cell {
+      min-height: 48px;
+    }
+  }
+}

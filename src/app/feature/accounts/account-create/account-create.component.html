@@ -1,0 +1,68 @@
+<div class="account-create-form-container">
+  <mat-grid-list cols="1" rowHeight="fit">
+    <mat-grid-tile>
+      <form [formGroup]="accountCreateForm" (ngSubmit)="onSubmit()" *ngIf="accountCreateForm" autocomplete="off">
+        <mat-card>
+          <mat-card-title>Create an Account</mat-card-title>
+          <mat-card-content>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Account Title" formControlName="title" required autocomplete="disabled">
+                <mat-error *ngIf="accountCreateForm?.controls.title?.errors?.required">A Title is required</mat-error>
+                <mat-error *ngIf="accountCreateForm?.controls.title?.errors?.minlength">
+                  Minimum length is not acheived
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Account Description" formControlName="description" required>
+                <mat-error *ngIf="accountCreateForm?.controls.description?.errors?.required">
+                  A Description is required
+                </mat-error>
+                <mat-error *ngIf="accountCreateForm?.controls.description?.errors?.minlength">
+                  Minimum length is not acheived
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Balance" formControlName="balance" type="number" required>
+                <span matPrefix>₹&nbsp;</span>
+                <mat-error *ngIf="accountCreateForm?.controls.description?.errors?.required">
+                  A Balance is required and is greater than 0
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select placeholder="Account Type" formControlName="accountType">
+                  <mat-option value=""></mat-option>
+                  <mat-option value="CASH">Cash</mat-option>
+                  <mat-option value="BANK">Bank</mat-option>
+                  <mat-option value="ASSET">Asset</mat-option>
+                  <mat-option value="INCOME">Income</mat-option>
+                  <mat-option value="EXPENSE">Expense</mat-option>
+                  <mat-option value="LIABILITIES">Liabilities</mat-option>
+                  <mat-option value="GROUP">Account Group</mat-option>
+                </mat-select>
+                <mat-error *ngIf="accountCreateForm?.controls.accountType?.errors?.required">
+                  Account Type is required
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select placeholder="Account Parent" formControlName="accountParent">
+                  <mat-option value=""></mat-option>
+                  <mat-option value="BANK">Bank</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Weight" formControlName="weight" required autocomplete="disabled">
+                <mat-error *ngIf="accountCreateForm?.controls.weight?.errors?.required">A Weight is required</mat-error>
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button class="mat-primary">Save</button>
+            <button routerLink="/accounts" mat-raised-button class="mat-basic">Cancel</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+</div>

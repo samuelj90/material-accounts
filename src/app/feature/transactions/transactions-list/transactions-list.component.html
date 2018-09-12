@@ -1,0 +1,24 @@
+<mat-table #transactions="matSort" [dataSource]="transactionsDataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="index">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+    <mat-cell *matCellDef="let i = index"> {{i+1}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="trDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.trDate}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accountFrom">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Account From </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.accountFrom}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accountTo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Account To </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.accountTo}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;let i = index; let date= '';"></mat-row>
+</mat-table>
