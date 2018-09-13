@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppTitleService } from './app-title.service';
+import { AppTitleService } from './services/app-title.service';
 
 @NgModule({
   imports: [

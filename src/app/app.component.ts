@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AppTitleService } from './core/app-title.service';
+import { Component, OnInit } from '@angular/core';
+import { AppTitleService } from './core/services/app-title.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { environment } from '../environments/environment.prod';
@@ -9,7 +9,7 @@ import { environment } from '../environments/environment.prod';
   styleUrls: ['./app.component.scss'],
   providers: [AppTitleService],
 })
-export class AppComponent {
+export class AppComponent  implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
