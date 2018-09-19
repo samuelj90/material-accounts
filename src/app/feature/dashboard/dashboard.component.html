@@ -1,8 +1,11 @@
+<h1 class="mat-h1">DASHBOARD</h1>
 <mat-grid-list [cols]="dashboardWidgetBreakPoint" rowHeight="200px" (window:resize)="onResize($event)" gutterSize="15">
   <mat-grid-tile *ngFor="let dashboardWidgetInfo of dashboardWidgetInfos">
     <mat-card [ngStyle]="dashboardWidgetInfo.styles">
       <mat-card-header>
-        <mat-card-title>{{dashboardWidgetInfo.title}}</mat-card-title>
+        <mat-card-title>
+          {{dashboardWidgetInfo.title}}
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <h2>{{dashboardWidgetInfo.amount}}</h2>
@@ -45,7 +48,7 @@
     <mat-grid-tile-header>
       <h3>Latest Expenses</h3>
     </mat-grid-tile-header>
-    <mat-table  #latestExpensesTable="matSort" [dataSource]="latestExpenses" matSort class="mat-elevation-z8">
+    <mat-table #latestExpensesTable="matSort" [dataSource]="latestExpenses" matSort class="mat-elevation-z8">
       <ng-container matColumnDef="index">
         <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
         <mat-cell *matCellDef="let i = index"> {{i+1}} </mat-cell>

@@ -1,6 +1,8 @@
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppTitleService } from './services/app-title.service';
+import { AuthGuard } from './guards/auth.guard';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -12,7 +14,13 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [{ provide: AppTitleService }]
+      providers: [
+        { provide: AppTitleService },
+        {
+          provide: AuthGuard,
+          useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
+        }
+      ]
     };
   }
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

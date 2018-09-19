@@ -1,14 +1,11 @@
-#addIcon {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-}
-
 mat-grid-list {
   height: calc(100vh - 100px);
   align-items: flex-start;
 
   mat-grid-tile {
+    @media screen and (max-width: 1024px) {
+      height: auto;
+    }
     mat-grid-tile-header {
       width: 100%;
       color: #000;
@@ -20,6 +17,7 @@ mat-grid-list {
       overflow: auto;
       width: 100%;
       height: calc(100% - 100px);
+      
     }
 
     pms-account-list {

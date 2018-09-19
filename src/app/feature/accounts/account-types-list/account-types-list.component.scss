@@ -19,3 +19,8 @@ mat-table {
     }
   }
 }
+@media screen and (max-width: 1024px) {
+  mat-table{
+    height: 100px;
+  }
+}

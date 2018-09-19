@@ -8,6 +8,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 })
 export class TransactionsListComponent implements OnInit {
   transactionsDataSource: any;
+  displayedColumns: string[];
   @ViewChild('transactions') transactionsSort: MatSort;
   constructor() { }
 
@@ -33,6 +34,7 @@ export class TransactionsListComponent implements OnInit {
       { trDate: '12-10-2018', accountFrom: 'Cash A/c', accountTo: 'Project2 A/c', amount: 50000 }
     ]);
     this.transactionsDataSource.sort = this.transactionsSort;
+    this.displayedColumns = ['index', 'trDate', 'accountFrom', 'accountTo', 'amount'];
   }
 
 }

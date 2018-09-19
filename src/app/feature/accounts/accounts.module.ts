@@ -15,6 +15,18 @@ const routes: Routes = [{
     title: 'ACCOUNTS'
   }
 }, {
+  path: 'account-types',
+  component: AccountTypesListComponent,
+  data: {
+    title: 'ACCOUNT TYPES'
+  }
+}, {
+  path: 'accounting-periods',
+  component: AccountingPeriodListComponent,
+  data: {
+    title: 'ACCOUNTING PERIODS'
+  }
+}, {
   path: 'create',
   component: AccountCreateComponent,
   data: {
