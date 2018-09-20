@@ -1,12 +1,36 @@
-<div>
+<div class="app-container">
   <mat-toolbar color="primary" class="app-toolbar">
     <mat-toolbar-row>
-      <button type="button" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>{{title}}</span>
+      <div>
+        <button type="button" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="toolbar-app-title">
+        <span>{{title}}</span>
+      </div>
+      <div class="toolbar-more-menu">
+        <button mat-icon-button (click)="toggleFullscreen()" title="Toggle fullscreen">
+          <mat-icon>fullscreen</mat-icon>
+        </button>
+        <button mat-button (click)="toggleTheme()">{{dark ? 'Light' : 'Dark'}} theme</button>
+        <button mat-icon-button [matMenuTriggerFor]="posXMenu" aria-label="Open x-positioned menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
+  <mat-menu xPosition="before" [overlapTrigger]="false" #posXMenu="matMenu">
+    <button mat-menu-item routerLink="/profile">
+      <mat-icon>person_outline</mat-icon> Profile
+    </button>
+    <button mat-menu-item routerLink="/settings">
+      <mat-icon>settings</mat-icon> Settings
+    </button>
+    <button mat-menu-item routerLink="/logout">
+      <mat-icon>lock_outline</mat-icon>Sign Out
+    </button>
+  </mat-menu>
   <mat-sidenav-container>
     <mat-sidenav #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" mode="over"
       [opened]="!(isHandset$ | async)">
@@ -25,27 +49,25 @@
         <a mat-list-item routerLink="/transactions">
           <mat-icon>credit_card</mat-icon>Transactions
         </a>
-        <mat-divider></mat-divider>
-        <a mat-list-item>
-          <mat-icon>account_balance</mat-icon>Accounts
-          <div layout-align="end center">
-            <mat-icon (click)="showAccountsSubMenu=true" *ngIf="showAccountsSubMenu!=true">keyboard_arrow_down</mat-icon>
-            <mat-icon (click)="showAccountsSubMenu=false" *ngIf="showAccountsSubMenu===true">keyboard_arrow_up</mat-icon>
-          </div>
+        <a mat-list-item (click)="showAccountsSubMenu=!showAccountsSubMenu">
+          <mat-icon>account_balance</mat-icon>
+          Accounts
+          <mat-icon class="sub-menu-action-icon" *ngIf="showAccountsSubMenu!=true">keyboard_arrow_down</mat-icon>
+          <mat-icon class="sub-menu-action-icon" *ngIf="showAccountsSubMenu===true">keyboard_arrow_up</mat-icon>
         </a>
         <div *ngIf="showAccountsSubMenu===true">
           <mat-divider></mat-divider>
           <a mat-list-item routerLink="/accounts">
-            Accounts
+            <mat-icon>account_balance</mat-icon>Accounts
           </a>
           <a mat-list-item routerLink="/accounts/account-types">
-            Account Types
+            <mat-icon>category</mat-icon>Account Types
           </a>
           <a mat-list-item routerLink="/accounts/accounting-periods">
-            Accounting Periods
+            <mat-icon>360</mat-icon>Accounting Periods
           </a>
+          <mat-divider></mat-divider>
         </div>
-        <mat-divider></mat-divider>
         <a mat-list-item routerLink="/users">
           <mat-icon>group</mat-icon>Users
         </a>

@@ -38,6 +38,7 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { ChartistModule } from 'ng-chartist';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
@@ -82,7 +83,8 @@ import { RouterModule } from '@angular/router';
     MatTooltipModule,
     MatTreeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartistModule
   ],
   exports: [
     PageNotFoundComponent,
@@ -124,7 +126,8 @@ import { RouterModule } from '@angular/router';
     MatTooltipModule,
     MatTreeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartistModule
   ],
   declarations: [PageNotFoundComponent, NavigationComponent]
 })
