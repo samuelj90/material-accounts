@@ -42,7 +42,10 @@ import { ChartistModule } from 'ng-chartist';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
-
+import { TranslateModule} from '@ngx-translate/core';
+import { ThemePickerComponent } from './theme-picker/theme-picker.component';
+import { StyleManagerService } from './theme-picker/style-manager/style-manager.service';
+import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -84,7 +87,8 @@ import { RouterModule } from '@angular/router';
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartistModule
+    ChartistModule,
+    TranslateModule.forChild()
   ],
   exports: [
     PageNotFoundComponent,
@@ -127,8 +131,10 @@ import { RouterModule } from '@angular/router';
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartistModule
+    ChartistModule,
+    TranslateModule
   ],
-  declarations: [PageNotFoundComponent, NavigationComponent]
+  providers: [StyleManagerService, ThemeStorageService],
+  declarations: [PageNotFoundComponent, NavigationComponent, ThemePickerComponent]
 })
-export class SharedModule {}
+export class SharedModule { }

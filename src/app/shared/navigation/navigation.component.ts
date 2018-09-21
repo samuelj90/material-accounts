@@ -2,15 +2,16 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { AppTitleService } from '../../core/services/app-title.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'pms-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
-  providers: [],
+  providers: [TranslateService],
 })
 export class NavigationComponent implements OnInit {
 
@@ -22,11 +23,13 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private route: ActivatedRoute,
-    private router: Router,
     private appTitleService: AppTitleService,
     private _element: ElementRef<HTMLElement>,
-    private _overlayContainer: OverlayContainer) { }
+    private _overlayContainer: OverlayContainer,
+    private translate: TranslateService) {
+    translate.addLangs(['en', 'ml']);
+    translate.setDefaultLang('en');
+  }
 
   ngOnInit() {
     this.appTitleService.titleBehaviorSubject.subscribe((title) => {
@@ -59,5 +62,8 @@ export class NavigationComponent implements OnInit {
       this._element.nativeElement.classList.remove(darkThemeClass);
       this._overlayContainer.getContainerElement().classList.remove(darkThemeClass);
     }
+  }
+  changeLang(language: string) {
+    this.translate.use(language);
   }
 }

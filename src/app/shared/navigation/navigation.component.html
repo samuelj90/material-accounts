@@ -7,13 +7,16 @@
         </button>
       </div>
       <div class="toolbar-app-title">
-        <span>{{title}}</span>
+        <span>{{title| translate }}</span>
       </div>
       <div class="toolbar-more-menu">
         <button mat-icon-button (click)="toggleFullscreen()" title="Toggle fullscreen">
           <mat-icon>fullscreen</mat-icon>
         </button>
-        <button mat-button (click)="toggleTheme()">{{dark ? 'Light' : 'Dark'}} theme</button>
+        <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
+          <mat-icon>language</mat-icon>
+        </button>
+        <pms-theme-picker></pms-theme-picker>
         <button mat-icon-button [matMenuTriggerFor]="posXMenu" aria-label="Open x-positioned menu">
           <mat-icon>more_vert</mat-icon>
         </button>
@@ -31,6 +34,15 @@
       <mat-icon>lock_outline</mat-icon>Sign Out
     </button>
   </mat-menu>
+
+  <mat-menu #language="matMenu">
+    <button mat-menu-item (click)="changeLang('en')">
+      <span>{{ 'English' | translate }}</span>
+    </button>
+    <button mat-menu-item (click)="changeLang('ml')">
+      <span>{{ 'Malayalam' | translate }}</span>
+    </button>
+  </mat-menu>
   <mat-sidenav-container>
     <mat-sidenav #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" mode="over"
       [opened]="!(isHandset$ | async)">
@@ -41,62 +53,62 @@
       </mat-toolbar>
       <mat-nav-list>
         <a mat-list-item routerLink="/dashboard">
-          <mat-icon>dashboard</mat-icon> Dashboard
+          <mat-icon>dashboard</mat-icon> {{ 'Dashboard' | translate }}
         </a>
         <a mat-list-item routerLink="/projects">
-          <mat-icon>home</mat-icon>Projects
+          <mat-icon>home</mat-icon>{{ 'Projects' | translate }}
         </a>
         <a mat-list-item routerLink="/transactions">
-          <mat-icon>credit_card</mat-icon>Transactions
+          <mat-icon>credit_card</mat-icon>{{ 'Transactions' | translate }}
         </a>
         <a mat-list-item (click)="showAccountsSubMenu=!showAccountsSubMenu">
           <mat-icon>account_balance</mat-icon>
-          Accounts
+          {{ 'Accounts' | translate }}
           <mat-icon class="sub-menu-action-icon" *ngIf="showAccountsSubMenu!=true">keyboard_arrow_down</mat-icon>
           <mat-icon class="sub-menu-action-icon" *ngIf="showAccountsSubMenu===true">keyboard_arrow_up</mat-icon>
         </a>
         <div *ngIf="showAccountsSubMenu===true">
           <mat-divider></mat-divider>
           <a mat-list-item routerLink="/accounts">
-            <mat-icon>account_balance</mat-icon>Accounts
+            <mat-icon>account_balance</mat-icon>{{ 'Accounts' | translate }}
           </a>
           <a mat-list-item routerLink="/accounts/account-types">
-            <mat-icon>category</mat-icon>Account Types
+            <mat-icon>category</mat-icon>{{ 'Account Types' | translate }}
           </a>
           <a mat-list-item routerLink="/accounts/accounting-periods">
-            <mat-icon>360</mat-icon>Accounting Periods
+            <mat-icon>360</mat-icon>{{ 'Accounting Periods' | translate }}
           </a>
           <mat-divider></mat-divider>
         </div>
         <a mat-list-item routerLink="/users">
-          <mat-icon>group</mat-icon>Users
+          <mat-icon>group</mat-icon>{{ 'Users' | translate }}
         </a>
         <a mat-list-item routerLink="/customers">
-          <mat-icon>supervisor_account</mat-icon>Customers
+          <mat-icon>supervisor_account</mat-icon>{{ 'Customers' | translate }}
         </a>
         <a mat-list-item routerLink="/employees">
-          <mat-icon>people_outline</mat-icon>Employees
+          <mat-icon>people_outline</mat-icon>{{ 'Employees' | translate }}
         </a>
         <a mat-list-item routerLink="/stocks">
-          <mat-icon>assignment</mat-icon>Stocks
+          <mat-icon>assignment</mat-icon>{{ 'Stocks' | translate }}
         </a>
         <a mat-list-item routerLink="/budgeting">
-          <mat-icon>assignment_turned_in</mat-icon>Budgeting
+          <mat-icon>assignment_turned_in</mat-icon>{{ 'Budgeting' | translate }}
         </a>
         <a mat-list-item routerLink="/forecast">
-          <mat-icon>calendar_today</mat-icon>Forecast
+          <mat-icon>calendar_today</mat-icon>{{ 'Forecast' | translate }}
         </a>
         <a mat-list-item routerLink="/masters">
-          <mat-icon>list</mat-icon>Masters
+          <mat-icon>list</mat-icon>{{ 'Masters' | translate }}
         </a>
         <a mat-list-item routerLink="/profile">
-          <mat-icon>account_box</mat-icon>Profile
+          <mat-icon>account_box</mat-icon>{{ 'Profile' | translate }}
         </a>
         <a mat-list-item routerLink="/about">
-          <mat-icon>info</mat-icon>About
+          <mat-icon>info</mat-icon>{{ 'About' | translate }}
         </a>
         <a mat-list-item routerLink="/help">
-          <mat-icon>contact_support</mat-icon>Help
+          <mat-icon>contact_support</mat-icon>{{ 'Help' | translate }}
         </a>
       </mat-nav-list>
     </mat-sidenav>
