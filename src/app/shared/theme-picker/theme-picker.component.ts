@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { StyleManagerService } from './style-manager/style-manager.service';
 import { ThemeStorageService } from './theme-storage/theme-storage.service';
 import { SiteTheme } from './site-theme';
@@ -6,7 +6,9 @@ import { SiteTheme } from './site-theme';
 @Component({
   selector: 'pms-theme-picker',
   templateUrl: './theme-picker.component.html',
-  styleUrls: ['./theme-picker.component.scss']
+  styleUrls: ['./theme-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class ThemePickerComponent implements OnInit {
 
@@ -20,7 +22,7 @@ export class ThemePickerComponent implements OnInit {
       isDark: false,
     },
     {
-      primary: '#3F51B5',
+      primary: '#FFC107',
       accent: '#E91E63',
       href: 'indigo-pink.css',
       isDark: false,
@@ -58,7 +60,7 @@ export class ThemePickerComponent implements OnInit {
     if (theme.isDefault) {
       this.styleManager.removeStyle('theme');
     } else {
-      this.styleManager.setStyle('theme', `assets/${theme.href}`);
+      this.styleManager.setStyle('theme', `assets/themes/${theme.href}`);
     }
 
     if (this.currentTheme) {
