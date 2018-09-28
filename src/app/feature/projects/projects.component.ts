@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from './project';
 
 @Component({
   selector: 'pms-projects',
@@ -10,6 +11,8 @@ export class ProjectsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
+
 
 }

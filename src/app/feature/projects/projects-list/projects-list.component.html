@@ -1,0 +1,5 @@
+<mat-grid-list [cols]="projectListCols" gutterSize="15" rowHeight="400px" (window:resize)="onResize($event)">
+  <mat-grid-tile *ngFor="let project of projects">
+    <pms-project-card [project]="project"></pms-project-card>
+  </mat-grid-tile>
+</mat-grid-list>

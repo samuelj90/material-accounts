@@ -1,0 +1,21 @@
+[mat-card-avatar] {
+  overflow: hidden;
+}
+mat-card-header{
+    [mat-icon-button] {
+        align-items: flex-end;
+    }
+}
+mat-card-content {
+  .project-details {
+    margin: 5px;
+    margin-top: 15px;
+    .secondary-text {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+}
+
+:host /deep/ .project-details .mat-grid-tile .mat-figure {
+  justify-content: flex-start;
+}

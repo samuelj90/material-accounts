@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img [src]="project.avatar">
+    </div>
+    <mat-card-title>{{project.title | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{project.description | uppercase}}</mat-card-subtitle>
+
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-grid-list cols="2"  class="project-details">
+      <mat-grid-tile>
+        <mat-list>
+          <mat-list-item>
+            <h3 mat-line>Project Start</h3>
+            <p mat-line class="secondary-text">{{project.start_date | date:'d, MMM y'}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 mat-line>Project End</h3>
+            <p mat-line class="secondary-text">{{project.end_date | date:'d, MMM y'}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 mat-line>Project Status</h3>
+            <p mat-line class="secondary-text">{{project.end_date | date:'d, MMM y'}}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-list>
+          <mat-list-item>
+            <h3 mat-line>Customer Name</h3>
+            <p mat-line class="secondary-text">{{project.start_date | date:'d, MMM y'}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 mat-line>Customer Address</h3>
+            <p mat-line class="secondary-text">{{project.end_date | date:'d, MMM y'}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 mat-line>Customer Phone</h3>
+            <p mat-line class="secondary-text">{{project.end_date | date:'d, MMM y'}}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions align="end">
+    <!-- <button mat-mini-fab routerLink="/projects/view/{{project.id}}"><mat-icon>visibility</mat-icon></button> &nbsp; -->
+    <button mat-mini-fab routerLink="/projects/edit/{{project.id}}"><mat-icon>edit</mat-icon></button> &nbsp;
+    <button mat-mini-fab color="warn" routerLink="/projects/delete/{{project.id}}"><mat-icon>delete</mat-icon></button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu xPosition="before" yPosition="above" #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Call Customer</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Email Customer</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </mat-card-actions>
+</mat-card>

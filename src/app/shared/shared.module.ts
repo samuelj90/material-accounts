@@ -46,6 +46,7 @@ import { TranslateModule} from '@ngx-translate/core';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { StyleManagerService } from './theme-picker/style-manager/style-manager.service';
 import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.service';
+
 @NgModule({
   imports: [
     CommonModule,

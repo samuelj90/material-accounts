@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
-import { RouterModule, Routes } from '@angular/router';
-const routes: Routes  = [{
-  path: '',
-  component: ProjectsComponent,
-  data: {
-    title: 'PROJECTS'
-  }
-}];
+import { ProjectCardComponent } from './project-card/project-card.component';
+import { SharedModule } from '../../shared/shared.module';
+import { ProjectsListComponent } from './projects-list/projects-list.component';
+import { ProjectsFormComponent } from './projects-form/projects-form.component';
+import { ProjectsViewComponent } from './projects-view/projects-view.component';
+import { ProjectsRoutingModule } from './projects-routing.module';
+
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
+    SharedModule,
+    ProjectsRoutingModule
   ],
-  exports: [RouterModule],
-  declarations: [ProjectsComponent]
+  declarations: [
+    ProjectsComponent,
+    ProjectCardComponent,
+    ProjectsListComponent,
+    ProjectsFormComponent,
+    ProjectsViewComponent
+  ]
 })
 export class ProjectsModule { }
