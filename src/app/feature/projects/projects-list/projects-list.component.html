@@ -1,5 +1,7 @@
-<mat-grid-list [cols]="projectListCols" gutterSize="15" rowHeight="400px" (window:resize)="onResize($event)">
+<pms-async-operation *ngIf="projects==null"></pms-async-operation>
+<mat-grid-list *ngIf="projects" [cols]="projectListCols" gutterSize="15" rowHeight="400px" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let project of projects">
     <pms-project-card [project]="project"></pms-project-card>
   </mat-grid-tile>
 </mat-grid-list>
+<a id="addIcon" routerLink="/projects/create" mat-fab color="primary"><mat-icon>add</mat-icon></a>

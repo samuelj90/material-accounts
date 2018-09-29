@@ -1,1 +1,2 @@
-<pms-project-card [project]="project"></pms-project-card>
+<pms-async-operation *ngIf="project==null"></pms-async-operation>
+<pms-project-card [project]="project" *ngIf="project"></pms-project-card>

@@ -46,6 +46,8 @@ import { TranslateModule} from '@ngx-translate/core';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { StyleManagerService } from './theme-picker/style-manager/style-manager.service';
 import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AsyncOperationComponent } from './async-operation/async-operation.component';
 
 @NgModule({
   imports: [
@@ -89,11 +91,13 @@ import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.
     FormsModule,
     ReactiveFormsModule,
     ChartistModule,
+    HttpClientModule,
     TranslateModule.forChild()
   ],
   exports: [
     PageNotFoundComponent,
     NavigationComponent,
+    AsyncOperationComponent,
     CommonModule,
     MatAutocompleteModule,
     MatBadgeModule,
@@ -133,9 +137,10 @@ import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.
     FormsModule,
     ReactiveFormsModule,
     ChartistModule,
+    HttpClientModule,
     TranslateModule
   ],
   providers: [StyleManagerService, ThemeStorageService],
-  declarations: [PageNotFoundComponent, NavigationComponent, ThemePickerComponent]
+  declarations: [PageNotFoundComponent, NavigationComponent, ThemePickerComponent, AsyncOperationComponent]
 })
 export class SharedModule { }

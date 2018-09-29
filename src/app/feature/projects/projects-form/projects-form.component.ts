@@ -8,25 +8,28 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./projects-form.component.scss']
 })
 export class ProjectsFormComponent implements OnInit {
-  accountCreateForm: FormGroup;
+  projectForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public snackbar: MatSnackBar, ) { }
+  minDate = new Date();
+  maxDate = new Date(2050, 0, 1);
+
+  constructor(public formBuilder: FormBuilder, public snackbar: MatSnackBar) { }
 
   ngOnInit() {
-    this.accountCreateForm = this.formBuilder.group({
+    this.projectForm = this.formBuilder.group({
       title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
-      description: new FormControl('', Validators.compose([Validators.required, Validators.minLength(10)])),
-      balance: new FormControl('', Validators.compose([Validators.required, Validators.min(0)])),
-      accountType: new FormControl('', Validators.compose([Validators.required])),
-      accountParent: new FormControl(''),
-      weight: new FormControl('', Validators.compose([Validators.required]))
+      description: new FormControl('', Validators.compose([Validators.required])),
+      startDate: new FormControl('', Validators.compose([Validators.required])),
+      endDate: new FormControl('', Validators.compose([Validators.required])),
+      remarks: new FormControl('', Validators.compose([Validators.required])),
+      customer: new FormControl('', Validators.compose([Validators.required])),
     });
-    this.accountCreateForm.valueChanges.subscribe((data) => {
-      console.log(this.accountCreateForm['controls']['title']);
+    this.projectForm.valueChanges.subscribe((data) => {
+      console.log(this.projectForm['controls']['title']);
     });
   }
 
   onSubmit() {
-    console.warn(this.accountCreateForm.value);
+    console.warn(this.projectForm.value);
   }
 }

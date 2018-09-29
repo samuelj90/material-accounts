@@ -6,11 +6,13 @@ import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsFormComponent } from './projects-form/projects-form.component';
 import { ProjectsViewComponent } from './projects-view/projects-view.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
+import { ProjectsSharedModule } from './shared/projects-shared.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    ProjectsRoutingModule
+    ProjectsRoutingModule,
+    ProjectsSharedModule
   ],
   declarations: [
     ProjectsComponent,
@@ -18,6 +20,6 @@ import { ProjectsRoutingModule } from './projects-routing.module';
     ProjectsListComponent,
     ProjectsFormComponent,
     ProjectsViewComponent
-  ]
+  ],
 })
 export class ProjectsModule { }

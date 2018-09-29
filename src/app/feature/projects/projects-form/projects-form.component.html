@@ -1,0 +1,52 @@
+<div class="project-form-container">
+  <mat-grid-list cols="1" rowHeight="fit">
+    <mat-grid-tile>
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" *ngIf="projectForm" autocomplete="off">
+        <mat-card>
+          <mat-card-title>
+            Create Project
+          </mat-card-title>
+          <mat-card-content>
+            <mat-form-field>
+              <input matInput placeholder="Account Title" formControlName="title" required autocomplete="disabled">
+              <mat-error *ngIf="accountCreateForm?.controls.title?.errors?.required">A Title is required</mat-error>
+              <mat-error *ngIf="accountCreateForm?.controls.title?.errors?.minlength">
+                Minimum length is not acheived
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput formControlName="description" placeholder="Enter Description"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [min]="minDate" [max]="endDate" formControlName="startDate" [matDatepicker]="startPicker"
+                placeholder="Choose a start date">
+              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+              <mat-datepicker #startPicker [startAt]="minDate"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [min]="startDate" [max]="maxDate" formControlName="endDate" [matDatepicker]="endPicker"
+                placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+              <mat-datepicker #endPicker [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput formControlName="remarks" placeholder="Remarks"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select formControlName="customer" [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option value="option1">Customer1 ( Address and unique Identifiers)</mat-option>
+                <mat-option value="option2">Customer1 ( Address and unique Identifiers)</mat-option>
+                <mat-option value="option3">Customer1 ( Address and unique Identifiers)</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button class="mat-primary">Save</button>
+            <button routerLink="/projects" mat-raised-button class="mat-basic">Cancel</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
