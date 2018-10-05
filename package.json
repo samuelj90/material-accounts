@@ -27,7 +27,6 @@
     "@ngx-translate/http-loader": "^3.0.1",
     "chartist": "^0.11.0",
     "core-js": "^2.5.4",
-    "ng-chartist": "^2.0.0-beta.1",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AccountType } from '../interfaces/account-type';
+import { AccountType } from '../shared/interfaces/account-type';
 @Component({
   selector: 'pms-account-types-list',
   templateUrl: './account-types-list.component.html',
@@ -14,8 +14,8 @@ import { AccountType } from '../interfaces/account-type';
   ]
 })
 export class AccountTypesListComponent implements OnInit {
-  private accountTypesDataSource: AccountType[];
-  private columnsToDisplay: string[];
+  accountTypesDataSource: AccountType[];
+  columnsToDisplay: string[];
   expandedElement: AccountType;
 
   constructor() { }

@@ -11,4 +11,5 @@ export interface Project {
     created_by: string;
     last_modified_date?: any;
     last_modified_by: string;
+    avatar?: string;
 }

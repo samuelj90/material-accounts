@@ -1,0 +1,27 @@
+.login-form-container {
+  background: url('https://source.unsplash.com/random/1600x900');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  mat-card {
+    width: 350px;
+
+    mat-form-field {
+      clear: both;
+      display: block;
+      position: relative;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  mat-grid-list {
+    height: calc(100vh);
+
+    mat-card-actions {
+      margin: 0;
+    }
+  }
+}

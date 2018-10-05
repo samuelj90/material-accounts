@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from '../interfaces/account';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AccountingPeriod } from '../interfaces/accounting-period';
+import { AccountingPeriod } from '../shared/interfaces/accounting-period';
 @Component({
   selector: 'pms-accounting-period-list',
   templateUrl: './accounting-period-list.component.html',
@@ -15,35 +14,13 @@ import { AccountingPeriod } from '../interfaces/accounting-period';
   ]
 })
 export class AccountingPeriodListComponent implements OnInit {
-  private accountingPeriodDataSource: AccountingPeriod[];
-  private columnsToDisplay: string[];
   expandedElement: AccountingPeriod;
+  accountingPeriodDataSource: AccountingPeriod[];
+  columnsToDisplay: string[];
   constructor() { }
 
   ngOnInit() {
     this.columnsToDisplay = ['title', 'actions'];
-    this.accountingPeriodDataSource = [
-      {
-        id: 1,
-        title: 'FY 2016-2017',
-        dateFrom: '01-04-2016',
-        dateTo: '31-03-2017',
-        createdAt: '10-10-2017',
-        createdBy: '',
-        lastModifiedAt: '',
-        lastModifiedBy: '10-12-2017'
-      },
-      {
-        id: 2,
-        title: 'FY 2017-2018',
-        dateFrom: '01-04-2017',
-        dateTo: '31-03-2018',
-        createdAt: '10-10-2017',
-        createdBy: '',
-        lastModifiedAt: '',
-        lastModifiedBy: '10-12-2017'
-      },
-    ];
   }
   setExpandedElement(element) {
     this.expandedElement = this.expandedElement === element ? null : element;

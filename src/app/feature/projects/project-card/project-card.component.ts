@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Project } from '../project';
+import { Project } from '../shared/interfaces/project';
 
 @Component({
   selector: 'pms-project-card',
@@ -8,11 +8,11 @@ import { Project } from '../project';
 })
 export class ProjectCardComponent implements OnInit {
   @Input()
-  private project: Project;
+  project: Project;
   constructor() { }
 
   ngOnInit() {
-    this.project['avatar'] = this.getAvatorURL(this.project);
+    this.project.avatar = this.getAvatorURL(this.project);
   }
   getAvatorURL(project: Project): string {
     const color = this.getRandomColor();

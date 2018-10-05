@@ -15,7 +15,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NavigationComponent implements OnInit {
 
-  private title = '';
+  title = '';
+  showAccountsSubMenu: boolean;
   private dark = false;
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -29,6 +30,7 @@ export class NavigationComponent implements OnInit {
     private translate: TranslateService) {
     translate.addLangs(['en', 'ml']);
     translate.setDefaultLang('en');
+    this.showAccountsSubMenu = false;
   }
 
   ngOnInit() {

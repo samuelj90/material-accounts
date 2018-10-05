@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from './interfaces/account';
+import { Account } from './shared/interfaces/account';
 @Component({
   selector: 'pms-accounts',
   templateUrl: './accounts.component.html',

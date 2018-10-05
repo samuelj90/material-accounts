@@ -38,7 +38,6 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import { ChartistModule } from 'ng-chartist';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
@@ -48,7 +47,7 @@ import { StyleManagerService } from './theme-picker/style-manager/style-manager.
 import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AsyncOperationComponent } from './async-operation/async-operation.component';
-
+import { ChartistModule } from './chartist/chartist.module';
 @NgModule({
   imports: [
     CommonModule,

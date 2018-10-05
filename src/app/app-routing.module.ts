@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
-    data: {
-      title: 'LOGIN'
-    }
+    path: 'auth',
+    loadChildren: './core/auth/auth.module#AuthModule'
   },
   {
     path: '',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../shared/project';
+import { Project } from '../shared/interfaces/project';
 import { ProjectsDataService } from '../shared/data-services/projects-data.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ProjectsDataService } from '../shared/data-services/projects-data.servi
   styleUrls: ['./projects-view.component.scss']
 })
 export class ProjectsViewComponent implements OnInit {
-  private project: Project;
+  project: Project;
   constructor(private route: ActivatedRoute, private projectDataService: ProjectsDataService) { }
 
   ngOnInit() {

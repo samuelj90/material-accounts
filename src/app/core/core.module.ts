@@ -14,13 +14,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [
-        { provide: AppTitleService },
-        {
-          provide: AuthGuard,
-          useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
-        }
-      ]
+      providers: [AppTitleService, AuthGuard]
     };
   }
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

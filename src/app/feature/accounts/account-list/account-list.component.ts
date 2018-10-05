@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from '../interfaces/account';
+import { Account } from '../shared/interfaces/account';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'pms-account-list',

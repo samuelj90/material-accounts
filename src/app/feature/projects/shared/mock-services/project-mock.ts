@@ -1,4 +1,4 @@
-import { Project } from '../project';
+import { Project } from '../interfaces/project';
 
 export const projectsMock: Project[] = JSON.parse(localStorage.getItem('pms-projects')) || [{
     'id': 11,
