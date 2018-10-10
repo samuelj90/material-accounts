@@ -16,7 +16,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '**', component: PageNotFoundComponent,
+    path: '**',
+    component: PageNotFoundComponent,
     data: {
       title: 'NOT FOUND'
     }

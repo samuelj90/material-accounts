@@ -1,41 +1,40 @@
-mat-sidenav-container {
-  mat-sidenav {
-    width: 250px;
+.navigation-container {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    mat-nav-list {
-      mat-icon {
-        margin-right: 15px;
-      }
-      .sub-menu-action-icon {
-        flex: 1;
-        text-align: right;
-        margin-right: 5px;
-      }
-    
+  mat-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+
+  mat-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+
+    mat-sidenav {
+      min-width: 250px;
+    }
+  }
+
+  mat-sidenav {
+    mat-icon {
+      margin-right: 16px;
+    }
+    .sub-menu-action-icon {
+      flex: 1;
+      text-align: right;
+      margin-right: 5px;
     }
   }
 
   mat-sidenav-content {
-    min-height: calc(100vh);
-    padding-top: 65px;
-  }
-}
-
-.app-toolbar {
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  min-height: 64px;
-
-  div {
-    flex: 1;
-  }
-
-  .toolbar-app-title {
-    text-align: center;
-  }
-
-  .toolbar-more-menu {
-    text-align: right;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
   }
 }

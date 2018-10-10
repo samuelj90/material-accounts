@@ -41,13 +41,16 @@ import {
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
-import { TranslateModule} from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 import { StyleManagerService } from './theme-picker/style-manager/style-manager.service';
 import { ThemeStorageService } from './theme-picker/theme-storage/theme-storage.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AsyncOperationComponent } from './async-operation/async-operation.component';
 import { ChartistModule } from './chartist/chartist.module';
+import { LanguagePickerComponent } from './navigation/language-picker/language-picker.component';
+import { FullScreenTooglerComponent } from './navigation/full-screen-toogler/full-screen-toogler.component';
+import { ProfileMenuComponent } from './navigation/profile-menu/profile-menu.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -140,6 +143,14 @@ import { ChartistModule } from './chartist/chartist.module';
     TranslateModule
   ],
   providers: [StyleManagerService, ThemeStorageService],
-  declarations: [PageNotFoundComponent, NavigationComponent, ThemePickerComponent, AsyncOperationComponent]
+  declarations: [
+    PageNotFoundComponent,
+    AsyncOperationComponent,
+    NavigationComponent,
+    ThemePickerComponent,
+    LanguagePickerComponent,
+    FullScreenTooglerComponent,
+    ProfileMenuComponent
+  ]
 })
 export class SharedModule { }

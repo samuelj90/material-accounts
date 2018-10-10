@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-themes": "node-sass themes -o src/assets/themes"
+    "build-themes": "node-sass src/assets/themes -o src/assets/themes"
   },
   "private": true,
   "dependencies": {

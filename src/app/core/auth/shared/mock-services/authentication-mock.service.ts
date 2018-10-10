@@ -34,7 +34,7 @@ export class AuthenticationMockService {
           return of(new HttpResponse({ status: 200, body: response }));
         } else {
           // else return 400 bad request
-          return throwError({ error: { message: 'Username or password is incorrect' } });
+          return throwError({ message: 'Username or password is incorrect' });
         }
       }
       // get users
