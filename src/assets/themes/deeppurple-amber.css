@@ -1792,3 +1792,15 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 .mat-simple-snackbar-action {
   color: #ffc107; }
+
+.pms-primary-text {
+  color: #673ab7; }
+
+.pms-primary-background {
+  background: #673ab7; }
+
+.pms-accent-text {
+  color: #ffc107; }
+
+.pms-accent-background {
+  background: #ffc107; }

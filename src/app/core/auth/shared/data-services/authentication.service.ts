@@ -12,6 +12,10 @@ export class AuthenticationService {
     AuthenticationService.isAuthenticatd = false;
   }
   public authenticated(): boolean {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user && user.token) {
+      AuthenticationService.isAuthenticatd = true;
+    }
     return AuthenticationService.isAuthenticatd;
   }
   login(username: string, password: string) {
@@ -28,6 +32,7 @@ export class AuthenticationService {
   }
   logout() {
     AuthenticationService.isAuthenticatd = true;
+    localStorage.removeItem('currentUser');
   }
 
 }

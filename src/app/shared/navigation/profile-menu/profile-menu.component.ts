@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/core/auth/shared/data-services/authentication.service';
 
 @Component({
   selector: 'pms-profile-menu',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.authenticationService.logout();
+    window.location.reload();
+  }
 }

@@ -1,0 +1,5 @@
+<mat-grid-list [cols]="dashboardWidgetBreakPoint" rowHeight="200px" (window:resize)="onResize($event)" gutterSize="15">
+  <mat-grid-tile *ngFor="let dashboardWidgetInfo of dashboardWidgetInfos">
+    
+  </mat-grid-tile>
+</mat-grid-list>

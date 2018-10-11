@@ -1,0 +1,11 @@
+<mat-card [ngStyle]="dashboardWidgetInfo.styles">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon class="icon-lg">{{dashboardWidgetInfo.icon}}</mat-icon>
+    </div>
+    <mat-card-title>
+      {{dashboardWidgetInfo.amount}}
+    </mat-card-title>
+    <mat-card-subtitle> {{dashboardWidgetInfo.title | translate}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

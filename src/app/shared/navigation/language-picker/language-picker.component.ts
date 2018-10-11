@@ -10,9 +10,10 @@ import {LanguageStorageService} from './language-storage/language-storage.servic
 })
 export class LanguagePickerComponent implements OnInit {
 
-  siteLanguages: SiteLanguage[] = [{languageKey: 'en'}, {languageKey: 'ml'}];
+  siteLanguages: SiteLanguage[];
 
   constructor(private translate: TranslateService, private  languageStorageService: LanguageStorageService) {
+    this.siteLanguages = languageStorageService.getLanguages();
   }
 
   ngOnInit() {

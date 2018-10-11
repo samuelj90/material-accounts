@@ -1,54 +1,17 @@
-<mat-grid-list [cols]="dashboardWidgetBreakPoint" rowHeight="200px" (window:resize)="onResize($event)" gutterSize="15">
-  <mat-grid-tile *ngFor="let dashboardWidgetInfo of dashboardWidgetInfos">
-    <mat-card [ngStyle]="dashboardWidgetInfo.styles">
-      <mat-card-header>
-        <div mat-card-avatar>
-          <mat-icon class="icon-lg">{{dashboardWidgetInfo.icon}}</mat-icon>
-        </div>
-        <mat-card-title>
-          {{dashboardWidgetInfo.amount}}
-        </mat-card-title>
-        <mat-card-subtitle> {{dashboardWidgetInfo.title | translate}}</mat-card-subtitle>
-      </mat-card-header>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
-
+<!--
+<pms-dashboard-widgets></pms-dashboard-widgets>
 <mat-grid-list [cols]="lastTransactionsBreakPoint" rowHeight="600px" gutterSize="15">
   <mat-grid-tile class="latest-transactions-grid-tile">
     <mat-grid-tile-header>
       <h3>{{ 'Latest Transactions'| translate }}</h3>
     </mat-grid-tile-header>
-    <mat-table #latestIncomesTable="matSort" [dataSource]="latestIncomes" matSort class="mat-elevation-z1">
-      <ng-container matColumnDef="index">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'No'| translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let i = index"> {{i+1}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="trDate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Date'| translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.trDate}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="accountFrom">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Account From'| translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.accountFrom}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="accountTo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Account To'| translate }} </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.accountTo}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Amount'| translate }}</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;let i = index; let date= '';"></mat-row>
-    </mat-table>
+    <pms-latest-transactions></pms-latest-transactions>
   </mat-grid-tile>
   <mat-grid-tile class="income-expense-chart-grid-tile">
     <mat-grid-tile-header>
       <h3>{{ 'Income vs Expenses'| translate }}</h3>
     </mat-grid-tile-header>
-    <x-chartist [data]="incomeExpenseChartData" type="Bar" [options]="incomeExpenseChartOptions" class="mat-elevation-z1">
-    </x-chartist>
+    <pms-income-expense-chart></pms-income-expense-chart>
   </mat-grid-tile>
 </mat-grid-list>
+-->

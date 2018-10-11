@@ -8,7 +8,7 @@
   <button mat-menu-item routerLink="/settings">
     <mat-icon>settings</mat-icon> Settings
   </button>
-  <button mat-menu-item routerLink="/logout">
+  <button mat-menu-item (click)="logout()">
     <mat-icon>lock_outline</mat-icon>Sign Out
   </button>
 </mat-menu>

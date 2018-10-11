@@ -1,0 +1,24 @@
+<mat-table #latestIncomesTable="matSort" [dataSource]="latestIncomes" matSort class="mat-elevation-z1">
+  <ng-container matColumnDef="index">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'No'| translate }} </mat-header-cell>
+    <mat-cell *matCellDef="let i = index"> {{i+1}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="trDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Date'| translate }} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.trDate}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accountFrom">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Account From'| translate }} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.accountFrom}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="accountTo">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Account To'| translate }} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.accountTo}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'Amount'| translate }}</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;let i = index; let date= '';"></mat-row>
+</mat-table>

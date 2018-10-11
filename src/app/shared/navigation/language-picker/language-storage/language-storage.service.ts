@@ -1,5 +1,5 @@
-import {EventEmitter, Injectable} from '@angular/core';
-import {SiteLanguage} from '../site-language';
+import { EventEmitter, Injectable } from '@angular/core';
+import { SiteLanguage } from '../site-language';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +7,10 @@ import {SiteLanguage} from '../site-language';
 export class LanguageStorageService {
 
   static storageKey = 'app-language-current-language';
-  static defaultLanguage: SiteLanguage = {languageKey: 'en'};
+  private defaultLanguage: SiteLanguage;
 
   constructor() {
+    this.defaultLanguage = this.getLanguages()[0];
   }
 
   public onThemeUpdate: EventEmitter<SiteLanguage> = new EventEmitter<SiteLanguage>();
@@ -25,7 +26,7 @@ export class LanguageStorageService {
 
   public getStoredLanguage(): SiteLanguage {
     try {
-      return JSON.parse(window.localStorage[LanguageStorageService.storageKey] || JSON.stringify(LanguageStorageService.defaultLanguage));
+      return JSON.parse(window.localStorage[LanguageStorageService.storageKey] || JSON.stringify(this.defaultLanguage));
     } catch (e) {
       return null;
     }
@@ -36,5 +37,12 @@ export class LanguageStorageService {
       window.localStorage.removeItem(LanguageStorageService.storageKey);
     } catch (e) {
     }
+  }
+
+  public getLanguages(): SiteLanguage[] {
+    return [
+      { languageKey: 'en', language: 'English' },
+      { languageKey: 'ml', language: 'Malayalam' }
+    ];
   }
 }

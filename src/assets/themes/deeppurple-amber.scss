@@ -13,3 +13,16 @@ $app-theme: mat-light-theme($app-primary, $app-accent);
 
 // Include the default theme styles.
 @include angular-material-theme($app-theme);
+
+.pms-primary-text {
+    color: mat-color($app-primary);
+}
+.pms-primary-background {
+    background: mat-color($app-primary);
+}
+.pms-accent-text {
+    color: mat-color($app-accent);
+}
+.pms-accent-background {
+    background: mat-color($app-accent);
+}

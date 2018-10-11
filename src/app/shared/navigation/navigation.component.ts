@@ -1,8 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, ElementRef } from '@angular/core';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { AppTitleService } from '../../core/services/app-title.service';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'pms-navigation',
@@ -14,7 +12,9 @@ export class NavigationComponent implements OnInit, OnDestroy {
   private _mobileQueryListener: () => void;
   title = '';
   showAccountsSubMenu: boolean;
-  constructor(private changeDetectorRef: ChangeDetectorRef, private media: MediaMatcher,private breakpointObserver: BreakpointObserver,
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private media: MediaMatcher,
     private appTitleService: AppTitleService,
     ) {
 
