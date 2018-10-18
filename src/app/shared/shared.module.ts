@@ -39,19 +39,19 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AsyncOperationComponent } from './async-operation/async-operation.component';
 import { ChartistModule } from './chartist/chartist.module';
-import { LanguagePickerComponent } from './navigation/language-picker/language-picker.component';
-import { FullScreenTooglerComponent } from './navigation/full-screen-toogler/full-screen-toogler.component';
-import { ProfileMenuComponent } from './navigation/profile-menu/profile-menu.component';
-import { ThemePickerComponent } from './navigation/theme-picker/theme-picker.component';
-import { StyleManagerService } from './navigation/theme-picker/style-manager/style-manager.service';
-import { ThemeStorageService } from './navigation/theme-picker/theme-storage/theme-storage.service';
+import { LanguagePickerComponent } from './toolbar/language-picker/language-picker.component';
+import { FullScreenTooglerComponent } from './toolbar/full-screen-toogler/full-screen-toogler.component';
+import { ProfileMenuComponent } from './toolbar/profile-menu/profile-menu.component';
+import { ThemePickerComponent } from './toolbar/theme-picker/theme-picker.component';
+import { StyleManagerService } from './toolbar/theme-picker/style-manager/style-manager.service';
+import { ThemeStorageService } from './toolbar/theme-picker/theme-storage/theme-storage.service';
 import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -99,7 +99,7 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-con
   ],
   exports: [
     PageNotFoundComponent,
-    NavigationComponent,
+    ToolbarComponent,
     AsyncOperationComponent,
     CommonModule,
     MatAutocompleteModule,
@@ -147,12 +147,12 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-con
   declarations: [
     PageNotFoundComponent,
     AsyncOperationComponent,
-    NavigationComponent,
     ThemePickerComponent,
     LanguagePickerComponent,
     FullScreenTooglerComponent,
     ProfileMenuComponent,
-    DeleteConfirmDialogComponent
+    DeleteConfirmDialogComponent,
+    ToolbarComponent,
   ]
 })
 export class SharedModule { }

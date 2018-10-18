@@ -1,0 +1,23 @@
+.pms-theme-picker-primary {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 6px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+[mat-menu-item] {
+  flex: 0 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.pms-theme-chosen-icon {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
