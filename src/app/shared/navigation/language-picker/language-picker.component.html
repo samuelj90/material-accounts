@@ -1,8 +1,0 @@
-<button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
-  <mat-icon>language</mat-icon>
-</button>
-<mat-menu  xPosition="before" [overlapTrigger]="false" #language="matMenu">
-  <button mat-menu-item *ngFor="let language of siteLanguages" (click)="changeLanguage(language)">
-    <span>{{ language.language | translate }}</span>
-  </button>
-</mat-menu>
